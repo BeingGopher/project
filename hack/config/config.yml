@@ -1,0 +1,4 @@
+# config.yml
+database:
+  dsn: "root:cds0210@tcp(127.0.0.1:3306)/project?charset=utf8mb4&parseTime=True&loc=Local"
+  driver: "mysql"
