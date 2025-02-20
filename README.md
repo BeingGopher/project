@@ -5,15 +5,15 @@
 ├── api
 ├── hack
 ├── internal
-│   ├── cmd
-│   ├── consts
-│   ├── controller
-│   ├── dao
-│   ├── logic
-│   ├── model
-│   |   ├── do
-│   │   └── entity
-│   └── service
+│ ├── cmd
+│ ├── consts
+│ ├── controller
+│ ├── dao
+│ ├── logic
+│ ├── model
+│ │ ├── do
+│ │ └── entity
+│ └── service
 ├── manifest
 ├── resource
 ├── utility
