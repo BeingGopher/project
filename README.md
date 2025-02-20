@@ -7,21 +7,37 @@
 markdown
 # 目录结构
 ├── api
+
 ├── hack
+
 ├── internal
+
 │ ├── cmd
+
 │ ├── consts
+
 │ ├── controller
+
 │ ├── dao
+
 │ ├── logic
+
 │ ├── model
+
 │ │ ├── do
+
 │ │ └── entity
+
 │ └── service
+
 ├── manifest
+
 ├── resource
+
 ├── utility
+
 ├── go.mod
+
 └── main.go
 
 这个目录结构展示了一个典型的 Go 项目布局，其中：
