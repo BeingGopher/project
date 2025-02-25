@@ -1,14 +1,12 @@
 package cmd
 
 import (
+	"github.com/gin-gonic/gin"
+	"log"
 	API "project/api/user/v1"
 	"project/hack/config"
 	"project/internal/consts"
 	"project/internal/dao"
-	"project/internal/model/entity"
-
-	"github.com/gin-gonic/gin"
-	"log"
 )
 
 // InitApp 初始化应用并返回 Gin 路由
@@ -23,9 +21,9 @@ func InitApp() *gin.Engine {
 	}
 
 	// 数据库迁移
-	if err := dao.DB.AutoMigrate(&entity.User{}).Error; err != nil {
-		log.Fatalf("Failed to migrate database: %v", err)
-	}
+	//if err := dao.DB().AutoMigrate(&entity.User{}).Error; err != nil {
+	//	log.Fatalf("Failed to migrate database: %v", err)
+	//}
 
 	// 初始化 Gin 路由
 	r := gin.Default()

@@ -4,15 +4,27 @@ import (
 	"fmt"
 	"project/internal/dao"
 	"project/internal/model/entity"
+	"project/internal/pkt"
 	"project/internal/service"
 )
 
-func Register(username, password, email string) error {
+type sUser struct {
+}
+
+func init() {
+	service.InitUser(New())
+}
+
+func New() *sUser {
+	return &sUser{}
+}
+
+func (s *sUser) Register(username, password, email string) error {
 	user := entity.User{Username: username, Password: password, Email: email}
 	return dao.CreateUser(user)
 }
 
-func Login(username, password string) (string, error) {
+func (s *sUser) Login(username, password string) (string, error) {
 	var (
 		user *entity.User
 		err  error
@@ -25,5 +37,5 @@ func Login(username, password string) (string, error) {
 	if user.Password != password {
 		return "", fmt.Errorf("密码错误")
 	}
-	return service.GenerateToken(user)
+	return pkt.GenerateToken(user)
 }

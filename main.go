@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"github.com/gin-gonic/gin"
 	"log"
 	API "project/api/user/v1"
@@ -17,7 +18,7 @@ func main() {
 	if err := dao.InitDB(); err != nil {
 		log.Fatalf("Failed to init DB %v", err)
 	}
-	err := dao.DB.AutoMigrate(&entity.User{})
+	err := dao.DB(context.Background()).AutoMigrate(&entity.User{})
 	if err != nil {
 		return
 	}

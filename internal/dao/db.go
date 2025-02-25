@@ -1,17 +1,17 @@
 package dao
 
 import (
+	"context"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"project/hack/config"
 )
 
-var DB *gorm.DB
+var db *gorm.DB
 
 func InitDB() (errs error) {
 	var (
 		dsn string
-		db  *gorm.DB
 		err error
 	)
 	dsn = config.Config.Database.DSN
@@ -20,6 +20,10 @@ func InitDB() (errs error) {
 	if err != nil {
 		return
 	}
-	DB = db
+
 	return
+}
+
+func DB(ctx context.Context) *gorm.DB {
+	return db.WithContext(ctx)
 }

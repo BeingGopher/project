@@ -1,11 +1,10 @@
-package service
+package pkt
 
 import (
+	"github.com/golang-jwt/jwt/v4"
 	"project/internal/consts"
 	"project/internal/model/entity"
 	"time"
-
-	"github.com/golang-jwt/jwt/v4"
 )
 
 func GenerateToken(user *entity.User) (string, error) {
